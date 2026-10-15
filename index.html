@@ -1,32 +1,40 @@
 <!doctype html>
+
 <html lang="my">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#080b14">
-<title>Nova AI Video Studio</title><link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d18">
+<title>WaiNet VPN</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080d18;color:#eef5ff;font-family:Arial,sans-serif}
+header{padding:22px 20px;border-bottom:1px solid #1c3150}
+.logo{color:#42a5ff;font-size:27px;font-weight:bold}
+.logo span{color:white}
+main{max-width:480px;margin:auto;padding:25px 20px}
+.tag{color:#49a8ff;font-size:12px;letter-spacing:2px}
+h1{font-size:30px;margin:12px 0}
+p{color:#a9b9d0;line-height:1.8}
+.panel{background:#101b2d;border:1px solid #243c5d;border-radius:20px;padding:24px;margin-top:25px;text-align:center}
+.circle{width:100px;height:100px;border:3px solid #168aff;border-radius:50%;margin:10px auto 20px;display:grid;place-items:center;color:#4baaff;font-size:38px}
+button{width:100%;padding:16px;border:0;border-radius:12px;background:#168aff;color:white;font-size:18px;font-weight:bold}
+.status{color:#63b6ff;margin:15px 0}
+.note{font-size:13px;margin-top:24px}
+</style>
 </head>
 <body>
-<header class="top"><div class="brand"><div class="logo">✦</div><div><b>NOVA</b><small>AI VIDEO STUDIO</small></div></div><span class="pill">PHONE FRIENDLY</span></header>
+<header><div class="logo">WaiNet <span>VPN</span></div></header>
 <main>
-<section class="hero"><div class="eyebrow">YOUR CREATIVE AI WORKSPACE</div><h1>Turn ideas into<br><span>moving stories.</span></h1><p>စာသားနဲ့ ပုံတွေကနေ AI ဗီဒီယိုဖန်တီးဖို့ ကိုယ်ပိုင် Studio စတင်ပါ။</p></section>
-<section class="panel">
-<div class="tabs"><button class="tab active" data-mode="text">✦ Text to Video</button><button class="tab" data-mode="image">▧ Image to Video</button></div>
-<label for="prompt">VIDEO PROMPT</label><textarea id="prompt" rows="4" placeholder="ဥပမာ — Cinematic shot of a lone guitarist on a dark stage, smoke, dramatic lights, slow camera push-in..."></textarea>
-<div class="hint">အင်္ဂလိပ်လို prompt ရေးရင် model အများစုမှာ ပိုကောင်းနိုင်ပါတယ်။</div>
-<div id="uploadWrap" class="upload hidden"><label for="imageFile">START IMAGE</label><input id="imageFile" type="file" accept="image/*"><div id="fileName" class="hint">PNG / JPG ကို ရွေးပါ</div></div>
-<div class="grid">
-<div><label for="duration">DURATION</label><select id="duration"><option value="3">3 seconds</option><option value="5" selected>5 seconds</option><option value="8">8 seconds</option></select></div>
-<div><label for="ratio">ASPECT RATIO</label><select id="ratio"><option>16:9</option><option>9:16</option><option>1:1</option></select></div>
-<div><label for="style">STYLE</label><select id="style"><option>Cinematic</option><option>Realistic</option><option>Anime</option><option>Music video</option><option>Fantasy</option><option>Commercial</option></select></div>
-<div><label for="motion">CAMERA MOTION</label><select id="motion"><option>Slow push-in</option><option>Tracking shot</option><option>Orbit camera</option><option>Handheld</option><option>Static camera</option></select></div>
+<div class="tag">SECURE CONNECTION</div>
+<h1>သင့်အင်တာနက်၊ ပိုမိုလုံခြုံစွာ</h1>
+<p>WaiNet VPN မှ ကြိုဆိုပါတယ်။ သင့် VPN ချိတ်ဆက်မှုအခြေအနေကို ဒီနေရာမှာ ကြည့်နိုင်ပါတယ်။</p>
+<div class="panel">
+<div class="circle">↗</div>
+<div id="status" class="status">Demo အခြေအနေ — မချိတ်ဆက်ရသေးပါ</div>
+<button onclick="document.getElementById('status').textContent='Demo သာဖြစ်သည် — VPN Server မချိတ်ဆက်ရသေးပါ'">ချိတ်ဆက်ရန် (Demo)</button>
+<p class="note">ဤခလုတ်သည် Demo သာဖြစ်သည်။ တကယ့် VPN အသုံးပြုရန် VPN Server ချိတ်ဆက်မှု လိုအပ်ပါသည်။</p>
 </div>
-<button id="generate" class="generate">✦ Generate Video <span>→</span></button>
-<div id="status" class="status" role="status">စတင်ရန် prompt ရေးပါ။</div>
-<div id="result" class="result hidden"><video id="video" controls playsinline></video><a id="download" class="download" download="nova-ai-video.mp4">Download video ↓</a></div>
-</section>
-<section class="panel tools"><div class="section-head"><div><div class="eyebrow">CREATOR TOOLS</div><h2>Studio utilities</h2></div><span class="tag">Included</span></div>
-<div class="tool-grid"><div class="tool"><b>✎ Prompt Helper</b><p>သင့် prompt ကို cinematic ပုံစံဖြစ်အောင် တိုးချဲ့ပေးမယ်။</p><button id="enhance" class="secondary">Improve prompt</button></div><div class="tool"><b>▤ Local History</b><p>ဒီ browser မှာ သိမ်းထားတဲ့ prompt တွေကို ပြန်သုံးပါ။</p><button id="historyBtn" class="secondary">Show history</button></div></div><div id="history" class="history hidden"></div>
-</section>
-<section class="note"><b>အရေးကြီး —</b> ဒီ Project က Studio UI နဲ့ API ချိတ်ဆက်ဖို့ starter ဖြစ်ပါတယ်။ တကယ့် AI video rendering အတွက် GPU/AI provider လိုပါတယ်။ အခမဲ့ဝန်ဆောင်မှုတွေမှာ quota/queue ကန့်သတ်ချက်ရှိနိုင်ပြီး အကန့်အသတ်မရှိ အခမဲ့ထုတ်နိုင်မယ်လို့ မအာမခံနိုင်ပါ။</section>
-</main><footer> NOVA AI VIDEO STUDIO · Personal starter project</footer><script src="app.js"></script>
-</body></html>
+</main>
+</body>
+</html>
