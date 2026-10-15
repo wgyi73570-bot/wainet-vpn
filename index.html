@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="my">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b14">
+<title>Nova AI Video Studio</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="brand"><div class="logo">✦</div><div><b>NOVA</b><small>AI VIDEO STUDIO</small></div></div><span class="pill">PHONE FRIENDLY</span></header>
+<main>
+<section class="hero"><div class="eyebrow">YOUR CREATIVE AI WORKSPACE</div><h1>Turn ideas into<br><span>moving stories.</span></h1><p>စာသားနဲ့ ပုံတွေကနေ AI ဗီဒီယိုဖန်တီးဖို့ ကိုယ်ပိုင် Studio စတင်ပါ။</p></section>
+<section class="panel">
+<div class="tabs"><button class="tab active" data-mode="text">✦ Text to Video</button><button class="tab" data-mode="image">▧ Image to Video</button></div>
+<label for="prompt">VIDEO PROMPT</label><textarea id="prompt" rows="4" placeholder="ဥပမာ — Cinematic shot of a lone guitarist on a dark stage, smoke, dramatic lights, slow camera push-in..."></textarea>
+<div class="hint">အင်္ဂလိပ်လို prompt ရေးရင် model အများစုမှာ ပိုကောင်းနိုင်ပါတယ်။</div>
+<div id="uploadWrap" class="upload hidden"><label for="imageFile">START IMAGE</label><input id="imageFile" type="file" accept="image/*"><div id="fileName" class="hint">PNG / JPG ကို ရွေးပါ</div></div>
+<div class="grid">
+<div><label for="duration">DURATION</label><select id="duration"><option value="3">3 seconds</option><option value="5" selected>5 seconds</option><option value="8">8 seconds</option></select></div>
+<div><label for="ratio">ASPECT RATIO</label><select id="ratio"><option>16:9</option><option>9:16</option><option>1:1</option></select></div>
+<div><label for="style">STYLE</label><select id="style"><option>Cinematic</option><option>Realistic</option><option>Anime</option><option>Music video</option><option>Fantasy</option><option>Commercial</option></select></div>
+<div><label for="motion">CAMERA MOTION</label><select id="motion"><option>Slow push-in</option><option>Tracking shot</option><option>Orbit camera</option><option>Handheld</option><option>Static camera</option></select></div>
+</div>
+<button id="generate" class="generate">✦ Generate Video <span>→</span></button>
+<div id="status" class="status" role="status">စတင်ရန် prompt ရေးပါ။</div>
+<div id="result" class="result hidden"><video id="video" controls playsinline></video><a id="download" class="download" download="nova-ai-video.mp4">Download video ↓</a></div>
+</section>
+<section class="panel tools"><div class="section-head"><div><div class="eyebrow">CREATOR TOOLS</div><h2>Studio utilities</h2></div><span class="tag">Included</span></div>
+<div class="tool-grid"><div class="tool"><b>✎ Prompt Helper</b><p>သင့် prompt ကို cinematic ပုံစံဖြစ်အောင် တိုးချဲ့ပေးမယ်။</p><button id="enhance" class="secondary">Improve prompt</button></div><div class="tool"><b>▤ Local History</b><p>ဒီ browser မှာ သိမ်းထားတဲ့ prompt တွေကို ပြန်သုံးပါ။</p><button id="historyBtn" class="secondary">Show history</button></div></div><div id="history" class="history hidden"></div>
+</section>
+<section class="note"><b>အရေးကြီး —</b> ဒီ Project က Studio UI နဲ့ API ချိတ်ဆက်ဖို့ starter ဖြစ်ပါတယ်။ တကယ့် AI video rendering အတွက် GPU/AI provider လိုပါတယ်။ အခမဲ့ဝန်ဆောင်မှုတွေမှာ quota/queue ကန့်သတ်ချက်ရှိနိုင်ပြီး အကန့်အသတ်မရှိ အခမဲ့ထုတ်နိုင်မယ်လို့ မအာမခံနိုင်ပါ။</section>
+</main><footer> NOVA AI VIDEO STUDIO · Personal starter project</footer><script src="app.js"></script>
+</body></html>
